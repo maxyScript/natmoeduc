@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=2.0">
+<title>Admin</title>
+		
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+</head>
+
+	<body>
+
+	<nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html"><div><ion-icon name="arrow-back-outline"></ion-icon> &nbsp;Précedent</div></a>
+        </div>
+       
+                            <!-- end nav-collapse -->
+                        </nav>
+                        <!-- end navbar -->
+                    </div>
+                </div>
+                <!-- end row -->
+            </div>
+      </div>
+    </nav>
+	
+    
+
+</head>
+<body>
+    <section>
+         <div class="content">
+            <div class="cards"> 
+            <div class="card">
+            <div class="box"><br/>
+            <h4>Formulaire d'inscription</h4>
+           <form action="pages/util_traitement.php" method="POST">
+            <div class="d-md-flex">
+             <div class="form-group">
+                 <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+               <input type="text" class="form-control" name="txtnom" placeholder="Nom" required="required" data-error=" Veillez remplir tous les champs.">
+               </div>
+               <div class="form-group ml-md-4">
+                <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+               <input type="text" class="form-control" name="txtprenom"placeholder="Prénom" required="required" data-error="Veillez remplir tous les champs.">
+                           </div>
+                       </div>
+                       <div class="d-md-flex">
+                           <div class="form-group">
+                               <div class="form-field">
+                      <div class="select-wrap">
+                     <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                     <span class="icon"><ion-icon name="school-outline"></ion-icon></span>
+                     <select name="txtoption" id="option" class="form-control">
+                      <option>Selectionnez un option</option>
+                       <option>Tech.Informatique</option>
+                       <option >Inforgraphie</option>
+                       <option >Assisstance Administrative</option>
+                       <option >Comptabilite Informatisée</option>
+                       <option>Administration de Réseau</option>
+                       <option>Dépannage d'ordinateur</option>
+                       <option>Webmaster</option>
+                       <option>Administration Data Base</option>
+                       <option>Cosmetologie</option>
+                       <option>Cuisine & Patisserie</option>
+                       <option >Plomberie</option>
+                       <option >Electricité</option>
+                       <option >Carrelage</option>
+                     </select>
+                   </div>
+                     </div>
+                           </div>
+                           <div class="form-group ml-md-4">
+                            <span class="icon"><ion-icon name="call-outline"></ion-icon></span>
+                               <input type="text" class="form-control" name="txtTelephone" placeholder="Telephone" required="required" data-error="Veillez remplir tous les champs.">
+                           </div>
+                       </div>
+                       <div class="d-md-flex">
+                           <div class="form-group">
+                            <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+                     <input type="text" class="form-control" name="txtmail" placeholder="exemple@gmail.com" required="required" data-error="Firstname is required.">
+                   </div>
+                   <div class="form-group ml-md-4">
+                     <input type="submit" value="S'inscrire" name="btn_Enregistrer" class="btn btn-primary">
+                    
+                   </div>
+                       </div>
+                   </form>
+                   
+               </div>
+       </div>
+       </div>
+   </section>
+
+             												
+
+</div><script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>
