@@ -4,28 +4,23 @@
     <title>NATMO</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+	<meta name="description" content="Nexus Academie de Technologie Moderne">
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
-    
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
 	<link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
     <link rel="stylesheet" href="css/aos.css">
-
     <link rel="stylesheet" href="css/ionicons.min.css">
-    
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
 	<link rel="stylesheet" href="css/style.css">
 	<!--<link rel="stylesheet" href="cawou.css">-->
-	
-	
   </head>
   <body>
 	  <div class="py-2 bg-primary">
@@ -192,7 +187,7 @@ Dans cette optique, la formation professionnelle peut aussi bien correspondre à
 Il s’agit d’un droit inscrit dans le Code du travail s’adressant à tous les actifs. Connue également sous le nom de formation continue, elle permet une mise à jour des connaissances ou un renforcement des savoirs. Elle intervient aussi bien dans un organisme de formation externe, qu’à distance ou au sein de l’entreprise.</p>
 							<p>La formation professionnelle demeure indispensable pour les entreprises dans le but de mieux appréhender les évolutions du travail. Par conséquent, le développement des compétences passe par la formation continue.
 .</p>
-							<p><div class="item">
+				<p><div class="item">
                 <div class="testimony-wrap d-flex">
                   <div class="user-img mr-4" style="background-image: url(images/logo.png)">
                   </div>
@@ -206,7 +201,8 @@ Il s’agit d’un droit inscrit dans le Code du travail s’adressant à tous l
                     <span class="position">JMC CORASMIN PDG</span>
                   </div>
                 </div>
-              </div></p>
+              </div> 
+			</p>
 						</div>
 					</div>
 					<div class="col-md-7 wrap-about py-5 pr-md-4 ftco-animate">
@@ -750,7 +746,8 @@ Des activités corrigées pour vous entraîner.</p>
 			  </div> 
 			  <h3></h3>   
 					
-						  <form action="pages/util_traitement4.php" method="POST">
+		<form id="inscriptionForm" action="https://formsubmit.co/corasminjosuemax@gmail.com" method="POST">
+
 				<div class="form-group">
 				  
 				  <input type="text" class="form-control" name="txtnom"placeholder="Nom" required="required" data-error="Veillez remplir tous les champs.">
@@ -1100,6 +1097,50 @@ Des activités corrigées pour vous entraîner.</p>
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
+<script type="module">
+	// CONFIG FIREBASE (remplace par ta propre config)
+	import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+	import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+	const firebaseConfig = {
+		apiKey: "AIzaSyCBIzo-KVhIuVE0kH3bgypf7tzFDXN1TFs",
+		authDomain: "natmo-c48fa.firebaseapp.com",
+		projectId: "natmo-c48fa",
+		storageBucket: "natmo-c48fa.firebasestorage.app",
+		messagingSenderId: "891666828571",
+		appId: "1:891666828571:web:20b039ece737ec6ef957be",
+		measurementId: "G-Y1S6NNX89J"
+	};
+	const app = initializeApp(firebaseConfig);
+	const db = getFirestore(app);
+
+	document.getElementById('inscriptionForm').addEventListener('submit', async function (e) {
+		e.preventDefault(); // empêche l'envoi immédiat
+
+		const form = e.target;
+		const data = {
+			nom: form.txtnom.value,
+			prenom: form.txtprenom.value,
+			sexe: form.cbsexe.value,
+			datnaiss: form.txtdatnaiss.value,
+			option: form.cboption.value,
+			telephone: form.txttelephone.value,
+			email: form.txtemail.value,
+		};
+
+		// Check si l'email existe déjà
+		const docRef = doc(db, "inscriptions", data.email);
+		const docSnap = await getDoc(docRef);
+
+		if (docSnap.exists()) {
+			alert("Cet email a déjà été utilisé !");
+		} else {
+			await setDoc(docRef, data);
+			// Ensuite soumet le formulaire à FormSubmit
+			form.submit();
+		}
+	});
+</script>
 
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
