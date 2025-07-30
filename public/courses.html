@@ -132,7 +132,9 @@
 			</div>
 		</section>
   <section class="ftco-section ftco-consult ftco-no-pt ftco-no-pb" style="background-image: url(images/co3.png); background-repeat:no-repeat ;" data-stellar-background-ratio="0.5">
-    	
+    	 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+       <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+	   
     		<div class="row justify-content-end">
     			<div class="col-md-6 py-5 px-md-5 bg-primary">
 	          <div class="heading-section heading-section-white ftco-animate mb-5">
@@ -147,24 +149,42 @@
 <div class="recent-paiements">
 <div class ="titles"> 
 <h4>Formulaire de demande d'admission</h4>
+	<form id="inscriptionForm" action="https://formsubmit.co/wcharlde@gmail.com" method="POST">
+			<input type="hidden" name="_subject" value="New submission!">
+			<input type="hidden" name="_cc" value="corasminjosuemax@gmail.com">
+			<input type="hidden" name="_captcha" value="true">
+			<input type="text" name="_honey" style="display:none">
+			<input type="hidden" name="_autoresponse" value="your custom message">
+			<input type="hidden" name="_autoresponse" value="Bonjour,
+			                  
+			                  Nous accusons bonne réception de votre demande d'inscription. Notre équipe vous contactera dans les plus brefs délais pour finaliser le processus.
+			                  
+			                  Toutefois, vous avez la possibilité de régler dès maintenant les frais d'inscription via :
+			                  
+			                  - **MonCash** : 509 49430100
+			                  - **NatCash** : 509 35554103
+			                  
+			                  Merci de votre confiance. 
+			                  Cordialement,
+			                  L'équipe d'inscription.">
 </div>
 <table>
   <section>
-	<form action="pages/util_traitement4.php" method="POST">
+	
 		<div class="form-group">
 		  
-		  <input type="text" class="form-control" name="txtnom"placeholder="Nom" required="required" data-error="Veillez remplir tous les champs.">
+		  <input type="text" class="form-control" name="nom"placeholder="Nom" required="required" data-error="Veillez remplir tous les champs.">
 		</div>
 
 		<div class="form-group">
 		  
-		  <input type="text" class="form-control" name="txtprenom"placeholder="prenom" required="required" data-error="Veillez remplir tous les champs.">
+		  <input type="text" class="form-control" name="prenom"placeholder="prenom" required="required" data-error="Veillez remplir tous les champs.">
 		</div>
 
 
 		<div class="form-group">
 		  
-		  <select name="cbsexe" id="Sexe" class="form-control">
+		  <select name="sexe" id="Sexe" class="form-control">
 			<option>Sexe</option>
 			<option>M</option>
 			<option >F</option>
@@ -172,11 +192,11 @@
 		</div>
 		
 		<div class="form-group">
-		  <input type="text" class="form-control" name="txtdatnaiss"placeholder="Date naissance" required="required" data-error="Veillez remplir tous les champs.">
+		  <input type="date" class="form-control" name="datnaissance"placeholder="Date naissance" required="required" data-error="Veillez remplir tous les champs.">
 		</div>
 
 		<div class="form-group">
-		  <select type="text" name="cboption" id="Option" class="form-control">
+		  <select type="text" name="option" id="Option" class="form-control">
 			<option>Choisir l'option</option>
 			  <option>Informatique bureautque</option>
 			  <option>Adminitration de reseau</option>
@@ -197,10 +217,10 @@
 	  </div>
 
 		<div class="form-group">
-		  <input type="text" class="form-control" name="txttelephone"placeholder="Telephone" required="required" data-error="Veillez remplir tous les champs.">
+		  <input type="text" class="form-control" name="telephone"placeholder="Telephone" required="required" data-error="Veillez remplir tous les champs.">
 		</div>
 		<div class="form-group">
-		  <input type="text" class="form-control" name="txtemail"placeholder="E-mail" required="required" data-error="Veillez remplir tous les champs.">
+		  <input type="text" class="form-control" name="email"placeholder="E-mail" required="required" data-error="Veillez remplir tous les champs.">
 		</div>
 
 		<div class="form-group">
@@ -307,7 +327,51 @@
         </div>
       </div>
     </footer>
-    
+    <script type="module">
+	// CONFIG FIREBASE (remplace par ta propre config)
+	import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+	import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+	const firebaseConfig = {
+		apiKey: "AIzaSyCBIzo-KVhIuVE0kH3bgypf7tzFDXN1TFs",
+		authDomain: "natmo-c48fa.firebaseapp.com",
+		projectId: "natmo-c48fa",
+		storageBucket: "natmo-c48fa.firebasestorage.app",
+		messagingSenderId: "891666828571",
+		appId: "1:891666828571:web:20b039ece737ec6ef957be",
+		measurementId: "G-Y1S6NNX89J"
+	};
+	const app = initializeApp(firebaseConfig);
+	const db = getFirestore(app);
+
+	document.getElementById('inscriptionForm').addEventListener('submit', async function (e) {
+		e.preventDefault(); // empêche l'envoi immédiat
+
+		const form = e.target;
+		const data = {
+			nom: form.nom.value,
+			prenom: form.prenom.value,
+			sexe: form.sexe.value,
+			datnaiss: form.datnaissance.value,
+			option: form.option.value,
+			telephone: form.telephone.value,
+			email: form.email.value,
+		};
+
+		// Check si l'email existe déjà
+		const docRef = doc(db, "inscriptions", data.email);
+		const docSnap = await getDoc(docRef);
+
+		if (docSnap.exists()) {
+			alert("Cet email a déjà été utilisé !");
+		} else {
+			await setDoc(docRef, data);
+			// Ensuite soumet le formulaire à FormSubmit
+			form.submit();
+		}
+	});
+</script>
+
   
 
   <!-- loader -->
