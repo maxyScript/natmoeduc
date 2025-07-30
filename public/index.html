@@ -745,7 +745,7 @@ Des activités corrigées pour vous entraîner.</p>
 			 <h3>
 			
 			  <div class="imgcontainer">
-				<h3 class="mb-4"><b>FORMULAIRE D'INSCRIPTION</b></h3>
+				<h3 class="mb-4"><b>Formulaire de demande d'admission</b></h3>
 			
 			  </div> 
 			  <h3></h3>   
@@ -756,9 +756,14 @@ Des activités corrigées pour vous entraîner.</p>
 			<input type="hidden" name="_captcha" value="true">
 			<input type="text" name="_honey" style="display:none">
 			<input type="hidden" name="_autoresponse" value="your custom message">
-			<input type="hidden" name="_autoresponse" value="Bonjour,
-			                  
-			                  Nous accusons bonne réception de votre demande d'inscription. Notre équipe vous contactera dans les plus brefs délais pour finaliser le processus.
+			<script>
+    function afficherMessage() {
+      // Récupération des valeurs saisies
+      const prenom = document.getElementById("prenom").value;
+      const nom = document.getElementById("nom").value;
+
+      // Construction du message
+      const message = `Salut ${prenom} ${nom}  Nous accusons bonne réception de votre demande d'inscription. Notre équipe vous contactera dans les plus brefs délais pour finaliser le processus.
 			                  
 			                  Toutefois, vous avez la possibilité de régler dès maintenant les frais d'inscription via :
 			                  
@@ -767,7 +772,15 @@ Des activités corrigées pour vous entraîner.</p>
 			                  
 			                  Merci de votre confiance. 
 			                  Cordialement,
-			                  L'équipe d'inscription.">
+			                  L'équipe d'inscription.">.`;
+
+      // Affichage dans la page
+      document.getElementById("message").textContent = message;
+	            
+	}
+			<input type="hidden" name="_autoresponse" value="Salut,
+			              
+							  </script> 
 				<div class="form-group">
 				  
 				  <input type="text" class="form-control" name="nom"placeholder="Nom" required="required" data-error="Veillez remplir tous les champs.">
