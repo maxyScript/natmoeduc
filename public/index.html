@@ -756,14 +756,11 @@ Des activités corrigées pour vous entraîner.</p>
 			<input type="hidden" name="_captcha" value="true">
 			<input type="text" name="_honey" style="display:none">
 			<input type="hidden" name="_autoresponse" value="your custom message">
-			<script>
-    function afficherMessage() {
-      // Récupération des valeurs saisies
-      const prenom = document.getElementById("prenom").value;
-      const nom = document.getElementById("nom").value;
-
-      // Construction du message
-      const message = `Salut ${prenom} ${nom}  Nous accusons bonne réception de votre demande d'inscription. Notre équipe vous contactera dans les plus brefs délais pour finaliser le processus.
+			<input type="hidden" name="_autoresponse" value="Salut">
+			                  <strong id="prenom"></strong>
+			                  Je suis heureux de vous informer que votre inscription à NATMO a été reçue avec succès le 
+			                  <strong id="date"></strong> pour l'option choisie en <strong
+							>pour etre inscrit en <strong id="option"></strong>Nous accusons bonne réception de votre demande d'inscription. Notre équipe vous contactera dans les plus brefs délais pour finaliser le processus.
 			                  
 			                  Toutefois, vous avez la possibilité de régler dès maintenant les frais d'inscription via :
 			                  
@@ -772,15 +769,17 @@ Des activités corrigées pour vous entraîner.</p>
 			                  
 			                  Merci de votre confiance. 
 			                  Cordialement,
-			                  L'équipe d'inscription.">.`;
-
-      // Affichage dans la page
-      document.getElementById("message").textContent = message;
-	            
-	}
-			<input type="hidden" name="_autoresponse" value="Salut,
-			              
-							  </script> 
+			                  L'équipe d'inscription.">
+			               
+			                  Veuillez trouver ci-dessous les détails de votre inscription :
+			                  Nom : <strong id="nom"></strong>
+			                  Prénom : <strong id="prenom"></strong>
+			                  Sexe : <strong id="sexe"></strong>
+			                  Date de naissance : <strong id="datnaissance"></strong>
+			                  Option choisie : <strong id="option"></strong>
+			                  Téléphone : <strong id="telephone"></strong>
+			                  Email : <strong id="email"></strong>
+			                  
 				<div class="form-group">
 				  
 				  <input type="text" class="form-control" name="nom"placeholder="Nom" required="required" data-error="Veillez remplir tous les champs.">
