@@ -756,13 +756,8 @@ Des activités corrigées pour vous entraîner.</p>
 			<input type="hidden" name="_captcha" value="true">
 			<input type="text" name="_honey" style="display:none">
 			<input type="hidden" name="_autoresponse" value="your custom message">
-			 <script>
-    function afficherTexte() {
-      let prenom = document.getElementById("prenom").value;
-      let nom = document.getElementById("nom").value;
-
-      let message = `Bienvenue, ${prenom} ${nom} ! Votre inscription a été enregistrée avec succès
-	  Nous avons bien reçu votre demande d'inscription à NATMO. Notre équipe vous contactera
+			<input type="hidden" name="_autoresponse" value="Salut,
+			                  Nous avons bien reçu votre demande d'inscription à NATMO. Notre équipe vous contactera
 			                  dans les plus brefs délais pour finaliser votre inscription.
 			                  Nous vous remercions de l'intérêt que vous portez à notre école et nous sommes,
 			                  Toutefois, vous avez la possibilité de régler dès maintenant les frais d'inscription via :
@@ -772,13 +767,7 @@ Des activités corrigées pour vous entraîner.</p>
 			                  
 			                  Merci de votre confiance. 
 			                  Cordialement,
-			                  L'équipe d'inscription."
-	 
-	  .`;
-      document.getElementById("message").textContent = message;
-    }
-  </script>
-			                  
+			                  L'équipe d'inscription.">
 				<div class="form-group">
 				  
 				  <input type="text" class="form-control" name="nom"placeholder="Nom" required="required" data-error="Veillez remplir tous les champs.">
