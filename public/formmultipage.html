@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+    
+
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="main--content">
+    <div class="header--wrapper">
+        <div class="header--title">
+         
+         
+            <span><h4> </h4></span>
+            
+</div>
+
+
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-page active" id="page1">
+            <h2>Étape 1</h2>
+            <h3><span>Formulaire d'inscription</span></h3>
+            
+            <input type="text" id="name" required="required" placeholder="Enter votre nom">
+           
+            <input type="text" id="pname" required="required" placeholder="Enter votre prenom">
+
+            <div class="form-group">
+				  
+				  <select name="sexe" id="Sexe" class="form-control">
+                    <label for="name">Nom:</label>
+					<option>Sexe</option>
+					<option>M</option>
+					<option >F</option>
+				  </select>
+				</div>
+
+           <div class="form-group">
+				  <input type="date" class="form-control" name="datnaissance"placeholder="Date naissance" required="required" data-error="Veillez remplir tous les champs.">
+				</div>
+  
+				<div class="form-group">
+				  <select type="text" name="option" id="Option" class="form-control">
+					<option>Choisir l'option</option>
+					  <option>Informatique bureautque</option>
+					  <option>Adminitration de reseau</option>
+					  <option>Assistance Administrative</option>
+					  <option >Infographie</option>
+					  <option>Photographie & Videographie</option>
+					  <option>Dépannage PC</option>
+					  <option >Plomberie</option>
+					  <option>Electricité</option>
+					  <option>Dévéloppement application</option>
+					  <option >Carrelage</option>
+					  <option>Comptabilité Informatisé</option>
+					  <option>Anglais</option>
+					  <option >Cuisine & Patisserie</option>
+					  <option >Cosemetologie moderne</option>
+				  </select>
+			  </div>
+  
+           
+            <button type="button" onclick="nextPage(2)">Suivant</button>
+        </div>
+
+        <div class="form-page" id="page2">
+            <h2>Étape 2</h2>
+             <div class="form-group">
+				  
+				  <select name="sexe" id="Sexe" class="form-control">
+                    <label for="name">Niveau d'etude:</label>
+					<option> Niveau d'etude:</option>
+					<option> 9 A.F</option>
+                    <option >Bac I</option>
+                    <option >Bac II</option>
+                    <option >Bac NSIV</option>
+                    <option >Licence</option>
+					<option >Master</option>
+                    <option >Doctorat</option>
+				  </select>
+				</div>
+            <input type="email" id="email" required="required" data-error="Veillez remplir tous les champs." placeholder="Enter votre email">
+            <button type="button" onclick="nextPage(1)">Précédent</button>
+            <button type="button" onclick="nextPage(3)">Suivant</button>
+        </div>
+
+        <div class="form-page" id="page3">
+            <h2>Étape 3</h2>
+            <input type="text" id="name" required="required" placeholder="Enter code de la transaction NatCash ou MonCash">
+          
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <label for="photo">Choisissez une photo  :</label>
+        <input type="file" id="photo" name="photo" accept="image/*" required>
+        <br><br>
+        
+    </form>
+    <label for="photo">Ecrire un message  :</label>
+            <textarea id="message" required></textarea>
+            <button type="button" onclick="nextPage(2)">Précédent</button>
+            <button type="submit" onclick="submitForm()">Soumettre</button>
+        </div>
+    </div>
+     <script src="script.js"></script>
+</body>
+</html>
+
+<style>
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.form-container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 10px;
+  border-radius: 50px;
+}
+
+.form-page {
+    display: none;
+    padding: 10px;
+  border-radius: 50px;
+}
+
+.form-page.active {
+    display: block;
+    padding: 10px;
+    border-radius: 50px;
+}
+
+
+button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px;
+  border-radius: 50px;
+}
+
+button:disabled {
+    background-color: #ccc;
+}
+button:hover {
+    background-color: #0056b3;}
+
+    
+    
+
+ select[type="text" ]{
+  width: 100%;
+  height: 100%;
+  padding: 12px 10px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  box-sizing: border-box;
+    }
+
+input  {
+  width: 100%;
+  height: 100%;
+  padding: 12px 10px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  box-sizing: border-box;
+    }
+
+    select[name=sexe] {
+  width: 100%;
+  height: 100%;
+  padding: 12px 10px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  box-sizing: border-box;
+    }
+
+
+</style>
