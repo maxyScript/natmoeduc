@@ -21,11 +21,11 @@
   <div class="main--content">
     <div class="header--wrapper">
         <div class="header--title">
-            <i class="fas fa-school"></i>
+            
             <span><h4>NATMO</h4></span>
             <h2></h2>
         </div>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     
         <div class="header--title">
         <i class="fa-brands fa-whatsapp">&nbsp;&nbsp;<a href="https://web.whatsapp.com"><b></b></a></i>
            
@@ -55,7 +55,6 @@
         </div>
 
 
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <div class="header--title">
         
         </div>
@@ -109,15 +108,15 @@
 			                  Cordialement,
 			                  L'équipe d'inscription.">
             <h2>Formulaire d'inscription</h2>
-            
+            <label for="name">Nom</label>
             <input type="text" id="name" required="required" placeholder="Enter votre nom">
-           
+            <label for="pname">Prénom</label>
             <input type="text" id="pname" required="required" placeholder="Enter votre prenom">
 
             <div class="form-group">
-				  
+				  <label for="Sexe">Sexe</label>
 				  <select name="sexe" id="Sexe" class="form-control">
-                    <label for="name">Nom:</label>
+                   <option value="" disabled selected>Choisir le sexe</option>
 					<option>Sexe</option>
 					<option>M</option>
 					<option >F</option>
@@ -129,6 +128,7 @@
 				</div>
   
 				<div class="form-group">
+                    <label for="option">Option</label>
 				  <select type="text" name="option" id="Option" class="form-control">
 					<option>Choisir l'option</option>
 					  <option>Informatique bureautque</option>
@@ -170,14 +170,12 @@
            
             <button type="button" onclick="nextPage(2)">Suivant</button>
         </div>
-
         <div class="form-page" id="page2">
             <h2>Étape 2</h2>
              <div class="form-group">
-				  
-				  <select name="sexe" id="Sexe" class="form-control">
-                    <label for="name">Niveau d'etude:</label>
-					<option> Niveau d'etude:</option>
+             <select name="sexe" id="niveau" class="form-control">
+              <label for="niveau">Niveau d'étude</label>
+                   <option value="" disabled selected>Choisir le niveau d'etude</option>
 					<option> 9 A.F</option>
                     <option >Bac I</option>
                     <option >Bac II</option>
@@ -187,28 +185,31 @@
                     <option >Doctorat</option>
 				  </select>
 				</div>
-     
-            <input type="text" id="icon-home" required="required" data-error="Veillez remplir tous les champs." placeholder="lieu de naissance">
-            <input type="email" id="icon-home" required="required" data-error="Veillez remplir tous les champs." placeholder="adresse">
+     <label for="icon-home">Lieu de naissance</label>
+            <input type="text" id="lieunaissance" required="required" data-error="Veillez remplir tous les champs." placeholder="lieu de naissance">
+            <label for="icon-home">Adresse</label>
+            <input type="adresse" id="adresse" required="required" data-error="Veillez remplir tous les champs." placeholder="adresse">
+            <label for="email">E-mail</label>
             <input type="email" id="email" required="required" data-error="Veillez remplir tous les champs." placeholder="E-mail">
-             <input type="email" id="icon-phone" required="required" data-error="Veillez remplir tous les champs." placeholder="Telephone">
-            <input type="text" id="date" required="required" data-error="Veillez remplir tous les champs." placeholder="date d'inscription">
+            <label for="icon-phone">Téléphone</label>
+             <input type="telephone" id="telephone" required="required" data-error="Veillez remplir tous les champs." placeholder="Telephone">
+              <label for="photo">Date inscription</label>
+            <input type="date" id="datedujour" required="required" data-error="Veillez remplir tous les champs." placeholder="date d'inscription">
             <button type="button" onclick="nextPage(1)">Précédent</button>
             <button type="button" onclick="nextPage(3)">Suivant</button>
         </div>
 
         <div class="form-page" id="page3">
             <h2>Étape 3</h2>
-            <input type="text" id="name" required="required" placeholder="Enter code de la transaction NatCash ou MonCash">
+            <label for="name">Code de la transaction NatCash ou MonCash</label>
+            <input type="text" id="codetrasaction" required="required" placeholder="Enter code de la transaction NatCash ou MonCash">
           
     <form action="/upload" method="post" enctype="multipart/form-data">
-        <label for="photo">Choisissez une photo  :</label>
+        <label for="photo">Une photo de la capture du code :</label>
         <input type="file" id="photo" name="photo" accept="image/*" required>
         <br><br>
         
     </form>
-    <label for="photo">Ecrire un message  :</label>
-            <textarea id="message" required></textarea>
             <button type="button" onclick="nextPage(2)">Précédent</button>
             <button type="submit" onclick="submitForm()">Soumettre</button>
         </div>
@@ -340,6 +341,12 @@ input  {
 			datnaiss: form.datnaissance.value,
 			option: form.option.value,
 			telephone: form.telephone.value,
+      adresse: form.adresse.value,
+      datedujour: form.datedujour.value,
+      niveau: form.niveau.value,
+      lieunaissance: form.lieunaissance.value,
+      photo:form.photo.value,
+      codetrasaction:form.codetrasaction.value,
 			email: form.email.value,
 		};
 		//aff
@@ -354,10 +361,10 @@ function afficherTexte() {
 		const docRef = doc(db, "inscriptions", data.email);
 		const docSnap = await getDoc(docRef);
 
-		//if (docSnap.exists()) {
-			//alert("Cet email a déjà été utilisé !");
-		//} else {
-		//	await setDoc(docRef, data);
+		if (docSnap.exists()) {
+			alert("Cet email a déjà été utilisé !");
+		} else {
+		await setDoc(docRef, data);
 			// Ensuite soumet le formulaire à FormSubmit
 			form.submit();
 		// }
