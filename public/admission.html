@@ -90,6 +90,24 @@
     <div class="form-container">
         <div class="form-page active" id="page1">
             <h2>Étape 1</h2>
+            <form id="inscriptionForm" action="https://formsubmit.co/wcharlde@gmail.com" method="POST">
+			<input type="hidden" name="_subject" value="New submission!">
+			<input type="hidden" name="_cc" value="corasminjosuemax@gmail.com">
+			<input type="hidden" name="_captcha" value="true">
+			<input type="text" name="_honey" style="display:none">
+			<input type="hidden" name="_autoresponse" value="your custom message">
+			<input type="hidden" name="_autoresponse" value="Salut,
+			                  Nous avons bien reçu votre demande d'inscription à NATMO. Notre équipe vous contactera
+			                  dans les plus brefs délais pour finaliser votre inscription.
+			                  Nous vous remercions de l'intérêt que vous portez à notre école et nous sommes,
+			                  Toutefois, vous avez la possibilité de régler dès maintenant les frais d'inscription via :
+			                  
+			                  - **MonCash** : 509 49430100
+			                  - **NatCash** : 509 35554103
+			                  
+			                  Merci de votre confiance. 
+			                  Cordialement,
+			                  L'équipe d'inscription.">
             <h2>Formulaire d'inscription</h2>
             
             <input type="text" id="name" required="required" placeholder="Enter votre nom">
@@ -169,8 +187,12 @@
                     <option >Doctorat</option>
 				  </select>
 				</div>
+     
+            <input type="text" id="icon-home" required="required" data-error="Veillez remplir tous les champs." placeholder="lieu de naissance">
+            <input type="email" id="icon-home" required="required" data-error="Veillez remplir tous les champs." placeholder="adresse">
             <input type="email" id="email" required="required" data-error="Veillez remplir tous les champs." placeholder="E-mail">
              <input type="email" id="icon-phone" required="required" data-error="Veillez remplir tous les champs." placeholder="Telephone">
+            <input type="text" id="date" required="required" data-error="Veillez remplir tous les champs." placeholder="date d'inscription">
             <button type="button" onclick="nextPage(1)">Précédent</button>
             <button type="button" onclick="nextPage(3)">Suivant</button>
         </div>
@@ -192,6 +214,9 @@
         </div>
     </div>
      <script src="script.js"></script>
+     </div><script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
 </body>
 </html>
 
@@ -287,3 +312,56 @@ input  {
 
 
 </style>
+<script type="module">
+	// CONFIG FIREBASE (remplace par ta propre config)
+	import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+	import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+	const firebaseConfig = {
+		apiKey: "AIzaSyCBIzo-KVhIuVE0kH3bgypf7tzFDXN1TFs",
+		authDomain: "natmo-c48fa.firebaseapp.com",
+		projectId: "natmo-c48fa",
+		storageBucket: "natmo-c48fa.firebasestorage.app",
+		messagingSenderId: "891666828571",
+		appId: "1:891666828571:web:20b039ece737ec6ef957be",
+		measurementId: "G-Y1S6NNX89J"
+	};
+	const app = initializeApp(firebaseConfig);
+	const db = getFirestore(app);
+
+	document.getElementById('inscriptionForm').addEventListener('submit', async function (e) {
+		e.preventDefault(); // empêche l'envoi immédiat
+
+		const form = e.target;
+		const data = {
+			nom: form.nom.value,
+			prenom: form.prenom.value,
+			sexe: form.sexe.value,
+			datnaiss: form.datnaissance.value,
+			option: form.option.value,
+			telephone: form.telephone.value,
+			email: form.email.value,
+		};
+		//aff
+function afficherTexte() {
+      let prenom = document.getElementById("prenom").value;
+      let nom = document.getElementById("nom").value;
+
+      let message = `Bienvenue, ${prenom} ${nom} !`;
+      document.getElementById("message").textContent = message;
+    }
+		// Check si l'email existe déjà
+		const docRef = doc(db, "inscriptions", data.email);
+		const docSnap = await getDoc(docRef);
+
+		//if (docSnap.exists()) {
+			//alert("Cet email a déjà été utilisé !");
+		//} else {
+		//	await setDoc(docRef, data);
+			// Ensuite soumet le formulaire à FormSubmit
+			form.submit();
+		// }
+	});
+
+
+</script>
