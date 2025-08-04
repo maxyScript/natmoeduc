@@ -217,7 +217,66 @@
      <script src="script.js"></script>
      </div><script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</style>
+<script type="module">
+	// CONFIG FIREBASE (remplace par ta propre config)
+	import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+	import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
+	const firebaseConfig = {
+		apiKey: "AIzaSyCBIzo-KVhIuVE0kH3bgypf7tzFDXN1TFs",
+		authDomain: "natmo-c48fa.firebaseapp.com",
+		projectId: "natmo-c48fa",
+		storageBucket: "natmo-c48fa.firebasestorage.app",
+		messagingSenderId: "891666828571",
+		appId: "1:891666828571:web:20b039ece737ec6ef957be",
+		measurementId: "G-Y1S6NNX89J"
+	};
+	const app = initializeApp(firebaseConfig);
+	const db = getFirestore(app);
+
+	document.getElementById('inscriptionForm').addEventListener('submit', async function (e) {
+		e.preventDefault(); // empêche l'envoi immédiat
+
+		const form = e.target;
+		const data = {
+			nom: form.nom.value,
+			prenom: form.prenom.value,
+			sexe: form.sexe.value,
+			datnaiss: form.datnaissance.value,
+			option: form.option.value,
+			telephone: form.telephone.value,
+      adresse: form.adresse.value,
+      datedujour: form.datedujour.value,
+      niveau: form.niveau.value,
+      lieunaissance: form.lieunaissance.value,
+      photo:form.photo.value,
+      codetrasaction:form.codetrasaction.value,
+			email: form.email.value,
+		};
+		//aff
+function afficherTexte() {
+      let prenom = document.getElementById("prenom").value;
+      let nom = document.getElementById("nom").value;
+
+      let message = `Bienvenue, ${prenom} ${nom} !`;
+      document.getElementById("message").textContent = message;
+    }
+		// Check si l'email existe déjà
+		const docRef = doc(db, "inscriptions", data.email);
+		const docSnap = await getDoc(docRef);
+
+		if (docSnap.exists()) {
+			alert("Cet email a déjà été utilisé !");
+		} else {
+		await setDoc(docRef, data);
+			// Ensuite soumet le formulaire à FormSubmit
+			form.submit();
+	 }
+	});
+
+
+</script>
 </body>
 </html>
 
@@ -313,62 +372,3 @@ input  {
 
 
 </style>
-<script type="module">
-	// CONFIG FIREBASE (remplace par ta propre config)
-	import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-	import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-
-	const firebaseConfig = {
-		apiKey: "AIzaSyCBIzo-KVhIuVE0kH3bgypf7tzFDXN1TFs",
-		authDomain: "natmo-c48fa.firebaseapp.com",
-		projectId: "natmo-c48fa",
-		storageBucket: "natmo-c48fa.firebasestorage.app",
-		messagingSenderId: "891666828571",
-		appId: "1:891666828571:web:20b039ece737ec6ef957be",
-		measurementId: "G-Y1S6NNX89J"
-	};
-	const app = initializeApp(firebaseConfig);
-	const db = getFirestore(app);
-
-	document.getElementById('inscriptionForm').addEventListener('submit', async function (e) {
-		e.preventDefault(); // empêche l'envoi immédiat
-
-		const form = e.target;
-		const data = {
-			nom: form.nom.value,
-			prenom: form.prenom.value,
-			sexe: form.sexe.value,
-			datnaiss: form.datnaissance.value,
-			option: form.option.value,
-			telephone: form.telephone.value,
-      adresse: form.adresse.value,
-      datedujour: form.datedujour.value,
-      niveau: form.niveau.value,
-      lieunaissance: form.lieunaissance.value,
-      photo:form.photo.value,
-      codetrasaction:form.codetrasaction.value,
-			email: form.email.value,
-		};
-		//aff
-function afficherTexte() {
-      let prenom = document.getElementById("prenom").value;
-      let nom = document.getElementById("nom").value;
-
-      let message = `Bienvenue, ${prenom} ${nom} !`;
-      document.getElementById("message").textContent = message;
-    }
-		// Check si l'email existe déjà
-		const docRef = doc(db, "inscriptions", data.email);
-		const docSnap = await getDoc(docRef);
-
-		if (docSnap.exists()) {
-			alert("Cet email a déjà été utilisé !");
-		} else {
-		await setDoc(docRef, data);
-			// Ensuite soumet le formulaire à FormSubmit
-			form.submit();
-		// }
-	});
-
-
-</script>
