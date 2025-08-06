@@ -22,48 +22,16 @@
     <div class="header--wrapper">
         <div class="header--title">
             
-            <span><h4>NATMO</h4></span>
-            <h2></h2>
-        </div>
-     
-        <div class="header--title">
-        <i class="fa-brands fa-whatsapp">&nbsp;&nbsp;<a href="https://web.whatsapp.com"><b></b></a></i>
            
+
+
         
-        </div>
-
-        <div class="header--title">
-        <i class="fa-brands fa-facebook">&nbsp;&nbsp;<a href="php/logout.php"></a></i>
-            
-        
-        </div>
-
-        <div class="header--title">
-        <i class="fa-brands fa-tiktok">&nbsp;&nbsp;<a href="php/logout.php"></a></i>
-            
-            
-        </div>
-        <div class="header--title">
-        <i class="fa-brands fa-instagram">&nbsp;&nbsp;<a href="php/logout.php"></a></i>
-            
-            
-        </div>
-        <div class="header--title">
-        <i class="fa-brands fa-linkedin">&nbsp;&nbsp;<a href="php/logout.php"></a></i>
-            
-            
-        </div>
-
-
-        <div class="header--title">
-        
-        </div>
 
 
         &nbsp;
         <div class="header--title">
         
-        <a href="index.html"><b><button class='btn btn-seconday'><b>Retour à l'accueil</b></button></b></i> </a>
+      
         </div>
             <div class="user--info">
             <div class="">
@@ -77,9 +45,38 @@
         <div class="header--title">
          
          
-            <span><h4> NEXUS ACADEMIE DE TECHNOLOGIE MODERNE </h4><b>Centre de formation professionnelle</b>
-        | Faire en sorte de rendre cohérentes les mesures de maintien de la motivation du début à la fin d’ un cours ou d’un programme.
-				  <p>Mettre en place des pédagogies innovantes et actives qui invitent davantage les étudiants à « apprendre par la mise en pratique » .</p></span>
+            
+        <span><h4>NATMO</h4></span>
+            
+        </div>
+     
+        <div class="header--title">
+        <a href="https://web.whatsapp.com"><i class="fa-brands fa-whatsapp">&nbsp;&nbsp;<b></b></a></i>
+           
+        
+        </div>
+
+        <div class="header--title">
+       <a href="php/logout.php"><i class="fa-brands fa-facebook">&nbsp;&nbsp;</a></i>
+            
+        
+        </div>
+
+        <div class="header--title">
+        <a href="php/logout.php"><i class="fa-brands fa-tiktok">&nbsp;&nbsp;</a></i>
+            
+            
+        </div>
+        <div class="header--title">
+        <a href="php/logout.php"><i class="fa-brands fa-instagram">&nbsp;&nbsp;</a></i>
+            
+            
+        </div>
+        <div class="header--title">
+          <i class="fa>"a href="index.html"><button class='btn btn-seconday'>Retour à l'accueil</button></i> </a>
+            
+            
+        </div> 
 				
 </div>
 
@@ -88,8 +85,12 @@
 <body>
     <div class="form-container">
         <div class="form-page active" id="page1">
+         <div class="container">
+      
+    </div>
+    
             <h2>Étape 1</h2>
-            <form id="inscriptionForm" action="https://formsubmit.co/wcharlde@gmail.com" method="POST">
+          <form id="inscriptionForm" action="https://formsubmit.co/wcharlde@gmail.com" method="POST">
 			<input type="hidden" name="_subject" value="New submission!">
 			<input type="hidden" name="_cc" value="corasminjosuemax@gmail.com">
 			<input type="hidden" name="_captcha" value="true">
@@ -108,13 +109,13 @@
 			                  Cordialement,
 			                  L'équipe d'inscription.">
             <h2>Formulaire d'inscription</h2>
-            <label for="name">Nom</label>
+       
             <input type="text" id="name" required="required" placeholder="Enter votre nom">
-            <label for="pname">Prénom</label>
+    
             <input type="text" id="pname" required="required" placeholder="Enter votre prenom">
 
             <div class="form-group">
-				  <label for="Sexe">Genre</label>
+				 
 				  <select name="sexe" id="Sexe" class="form-control">
                    <option value="" disabled selected>Sélectionner un genre</option>
 					
@@ -128,7 +129,7 @@
 				</div>
   
 				<div class="form-group">
-                    <label for="option">Option</label>
+                   
 				  <select type="text" name="option" id="Option" class="form-control">
 					<option>Choisir l'option</option>
 					  <option>Informatique bureautque</option>
@@ -168,13 +169,17 @@
 			  </div>
   
            
-            <button type="button" onclick="nextPage(2)">Suivant</button>
+            <button id="increaseButton"type="button" onclick="nextPage(2)">Suivant</button>
         </div>
         <div class="form-page" id="page2">
+ <div class="container">
+       
+    </div>
             <h2>Étape 2</h2>
+            <form id="inscriptionForm" action="https://formsubmit.co/wcharlde@gmail.com" method="POST"></form>
              <div class="form-group">
              <select name="sexe" id="niveau" class="form-control">
-              <label for="niveau">Niveau d'étude</label>
+             
                    <option value="" disabled selected>Choisir le niveau d'etude</option>
 					<option> 9 A.F</option>
                     <option >Bac I</option>
@@ -185,27 +190,30 @@
                     <option >Doctorat</option>
 				  </select>
 				</div>
-     <label for="icon-home">Lieu de naissance</label>
+     
             <input type="text" id="lieunaissance" required="required" data-error="Veillez remplir tous les champs." placeholder="lieu de naissance">
-            <label for="icon-home">Adresse</label>
+           
             <input type="adresse" id="adresse" required="required" data-error="Veillez remplir tous les champs." placeholder="adresse">
-            <label for="email">E-mail</label>
+          
             <input type="email" id="email" required="required" data-error="Veillez remplir tous les champs." placeholder="E-mail">
-            <label for="icon-phone">Téléphone</label>
+           
              <input type="telephone" id="telephone" required="required" data-error="Veillez remplir tous les champs." placeholder="Telephone">
-              <label for="photo">Date inscription</label>
+             
             <input type="date" id="datedujour" required="required" data-error="Veillez remplir tous les champs." placeholder="date d'inscription">
             <button type="button" onclick="nextPage(1)">Précédent</button>
-            <button type="button" onclick="nextPage(3)">Suivant</button>
+            <button id="increaseButton"type="button" onclick="nextPage(3)">Suivant</button>
         </div>
 
         <div class="form-page" id="page3">
+           <div class="container">
+        <div class="progress-bar" id="progressBar" style="width: 0%">100%</div>
+    </div>
             <h2>Étape 3</h2>
-            <label for="name">Code de la transaction NatCash ou MonCash</label>
+           <form id="inscriptionForm_1" action="https://formsubmit.co/wcharlde@gmail.com" method="POST"></form>
             <input type="text" id="codetrasaction" required="required" placeholder="Enter code de la transaction NatCash ou MonCash">
           
     <form action="/upload" method="post" enctype="multipart/form-data">
-        <label for="photo">Une photo de la capture du code :</label>
+       
         <input type="file" id="photo" name="photo" accept="image/*" required>
         <br><br>
         
@@ -274,8 +282,36 @@ function afficherTexte() {
 			form.submit();
 	 }
 	});
+//
+let progress = 0;
+
+document.getElementById('increaseButton').addEventListener('click', function() {
+    if (progress < 100) {
+        progress += 100; // Augmente de 50% à chaque clic
+        updateProgressBar();
+    } else {
+        alert('La progression est déjà à 100% !');
+    }
+});
 
 
+
+
+
+document.getElementById('increaseButton_1').addEventListener('click', function() {
+    if (progress_1 <100 ) {
+        progress_1 += 50; // Augmente de 100% à chaque clic
+        updateProgressBar-1();
+    } else {
+        alert('La progression est déjà à 100% !');
+    }
+});
+
+function updateProgressBar() {
+    const progressBar = document.getElementById('progressBar');
+    progressBar.style.width = progress + '%';
+    progressBar.textContent = progress + '%';
+}
 </script>
 </body>
 </html>
@@ -293,6 +329,25 @@ body {
     background-color: #f4f4f4;
 }
 
+
+.container {
+    width: 80%;
+    background-color: #e0e0e0;
+    border-radius: 25px;
+    overflow: hidden;
+    margin: auto;
+}
+
+
+.progress-bar {
+    height: 20px;
+    background-color: #007BFF;
+    text-align: center;
+    line-height: 20px; /* Aligne le texte verticalement */
+    color: white;
+    font-weight: bold;
+    transition: width 0.3s; /* Animation de la largeur */
+}
 .form-container {
     background: white;
     padding: 20px;
@@ -322,10 +377,9 @@ button {
     background-color: #007BFF;
     color: white;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
     padding: 10px;
-  border-radius: 50px;
+    border-radius: 50px;
 }
 
 button:disabled {
