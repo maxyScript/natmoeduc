@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter un Nouvel Utilisateur - Natmo School</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+    <nav class="sidebar">
+        <h2>NATMO.SCHOOL</h2>
+        <ul>
+            <li><a href="dashboard.html">Tableau de bord</a></li>
+            <li><a href="user.html">Mon Profil</a></li>
+            <li><a href="courses.html">Mes Cours</a></li>
+            <li><a href="stats.html">Statistiques</a></li>
+            <li><a href="logout.html">Déconnexion</a></li>
+        </ul>
+    </nav>
+    <main>
+        <header>
+            <h1>Ajouter un Nouvel Utilisateur</h1>
+        </header>
+        <section>
+            <form id="addUserForm">
+                <label for="name">Nom :</label>
+                <input type="text" id="name" required>
+
+                <label for="email">Email :</label>
+                <input type="email" id="email" required>
+
+                <label for="role">Rôle :</label>
+                <select id="role" required>
+                    <option value="" disabled selected>Sélectionner un rôle</option>
+                    <option value="Administrateur">Administrateur</option>
+                    <option value="Professeur">Professeur</option>
+                    <option value="Élève">Élève</option>
+                </select>
+
+                <button type="submit">Ajouter Utilisateur</button>
+            </form>
+            <p id="message"></p>
+        </section>
+    </main>
+</div>
+
+<script src="script.js"></script>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    display: flex;
+}
+
+.sidebar {
+    min-width: 200px;
+    background: #35424a;
+    color: #ffffff;
+    padding: 20px;
+}
+
+.sidebar h2 {
+    text-align: center;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    margin: 0;
+}
+
+form {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #4cae4c;
+}
+
+#message {
+    margin-top: 10px;
+    color: green;
+}
+</style>
+</body>
+</html>
