@@ -254,6 +254,12 @@
 		  <input type="text" class="form-control" name="telephone"placeholder="Telephone" required="required" data-error="Veillez remplir tous les champs.">
 		</div>
 		<div class="form-group">
+		  <input type="text" class="form-control" name="adresse"placeholder="Adresse" required="required" data-error="Veillez remplir tous les champs.">
+		</div>
+		<div class="form-group">
+		  <input type="text" class="form-control" name="codetrasaction"placeholder="Confirmer le code de transaction  par MonCash ou NatCash" required="required" data-error="Veillez remplir tous les champs.">
+		</div>
+		  <div class="form-group">
 		  <input type="text" class="form-control" name="email"placeholder="E-mail" required="required" data-error="Veillez remplir tous les champs.">
 		</div>
 
@@ -390,6 +396,9 @@
 			option: form.option.value,
 			telephone: form.telephone.value,
 			email: form.email.value,
+			adresse: form.adresse.value,
+			codetrasaction: form.codetrasaction.value,
+			niveau: form.niveau.value
 		};
 
 		// Check si l'email existe déjà
