@@ -119,7 +119,8 @@ img.avatar {
             <div class="imgcontainer">
              
             </div> 
-            <h3>Formulaire de demande d'admission</h3>   
+            <h3>Formulaire de demande d'admission</h3>  
+            <p><b>NB </b>: Après le paiement des frais d’inscription par NatCash ou MonCash, vous pourrez remplir le formulaire ici</p> 
                   
 						<form id="inscriptionForm" action="https://formsubmit.co/wcharlde@gmail.com" method="POST">
 			<input type="hidden" name="_subject" value="New submission!">
@@ -145,7 +146,7 @@ img.avatar {
 
               <div class="form-group">
                 
-                <input type="text" class="form-control" name="prenom"placeholder="prenom" required="required" data-error="Veillez remplir tous les champs.">
+                <input type="text" class="form-control" name="prenom"placeholder="Prenom" required="required" data-error="Veillez remplir tous les champs.">
               </div>
 
 
@@ -157,9 +158,10 @@ img.avatar {
                   <option>F</option>
                 </select>
               </div>
-              
+             
               <div class="form-group">
-                <input type="date" class="form-control" name="datnaissance"placeholder="Date naissance" required="required" data-error="Veillez remplir tous les champs.">
+               
+                <input type="date" class="form-control" name="datnaissance"required="required" data-error="Veillez remplir tous les champs.">
               </div>
 
               <div class="form-group">
@@ -184,7 +186,7 @@ img.avatar {
                     <option >Cybersécurité</option>
                     <option >Data Science</option>
                     <option >Cloud Computing</option>
-                    <option >Langues</option>
+                    <option >Anglais</option>
                     <option >Ingénierie plomberie</option>
                     <option >Ingénierie électrique</option>
                     <option >Ingénierie des systèmes</option>
@@ -201,9 +203,30 @@ img.avatar {
                     <option >Marketing</option>
                 </select>
             </div>
+ <div class="form-group">
+               <select type="text" name="niveau" id="niveau" class="form-control">
+                  ,<option>Niveau d'étude</option>
+                    <option >6 A.F</option>
+                    <option >7 A.F</option>
+                    <option >8 A.F</option>
+                <option> 9 A.F</option>
+                    <option >Bac I</option>
+                    <option >Bac II</option>
+                    <option >Bac NSIV</option>
+                    <option >Licence</option>
+					<option >Master</option>
+                    <option >Doctorat</option>
+               </select>
+              </div>
 
               <div class="form-group">
                 <input type="text" class="form-control" name="telephone"placeholder="Telephone" required="required" data-error="Veillez remplir tous les champs.">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="adresse"placeholder="Adresse" required="required" data-error="Veillez remplir tous les champs.">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="codetrasaction"placeholder="Confirmer le code de transaction  par MonCash ou NatCash" required="required" data-error="Veillez remplir tous les champs.">
               </div>
               <div class="form-group">
                 <input type="text" class="form-control" name="email"placeholder="E-mail" required="required" data-error="Veillez remplir tous les champs.">
@@ -336,6 +359,9 @@ img.avatar {
 			option: form.option.value,
 			telephone: form.telephone.value,
 			email: form.email.value,
+      adresse: form.adresse.value,
+      codetrasaction: form.codetrasaction.value,
+      niveau: form.niveau.value
 		};
 
 		// Check si l'email existe déjà
