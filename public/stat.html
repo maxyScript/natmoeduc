@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Statistiques - Natmo School</title>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <h2>NATMO.SCHOOL</h2>
+            <ul>
+                <li><a href="index.html">Tableau de bord</a></li>
+                <li><a href="user.html">Mon Profil</a></li>
+                <li><a href="courses.html">Mes Cours</a></li>
+                <li><a href="stats.html">Statistiques</a></li>
+                <li><a href="#">Déconnexion</a></li>
+            </ul>
+        </nav>
+        <main>
+            <header>
+                <h1>Statistiques</h1>
+            </header>
+            <section>
+                <h2>Utilisateurs par rôle</h2>
+                <canvas id="userRoleChart"></canvas>
+            </section>
+            <section>
+                <h2>Performance des cours</h2>
+                <canvas id="coursePerformanceChart"></canvas>
+            </section>
+        </main>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Exemple de données pour les graphiques
+        const userRoleData = {
+            labels: ['Administrateurs', 'Professeurs', 'Élèves'],
+            datasets: [{
+                label: 'Nombre d\'utilisateurs',
+                data: [5, 15, 80],
+                backgroundColor: ['#3498db', '#2ecc71', '#e74c3c']
+            }]
+        };
+
+        const coursePerformanceData = {
+            labels: ['Cours 1', 'Cours 2', 'Cours 3', 'Cours 4'],
+            datasets: [{
+                label: 'Taux de réussite (%)',
+                data: [85, 90, 78, 88],
+                backgroundColor: '#9b59b6'
+            }]
+        };
+
+        // Configuration des graphiques
+        const userRoleConfig = {
+            type: 'doughnut',
+            data: userRoleData,
+            options: {}
+        };
+
+        const coursePerformanceConfig = {
+            type: 'bar',
+            data: coursePerformanceData,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        };
+
+        // Rendu des graphiques
+        const userRoleChart = new Chart(
+            document.getElementById('userRoleChart'),
+            userRoleConfig
+        );
+
+        const coursePerformanceChart = new Chart(
+            document.getElementById('coursePerformanceChart'),
+            coursePerformanceConfig
+        );
+
+
+        
+    </script>
+    <style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    display: flex;
+}
+
+.sidebar {
+    min-width: 200px;
+    background: #35424a;
+    color: #ffffff;
+    padding: 20px;
+}
+
+.sidebar h2 {
+    text-align: center;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    margin: 0;
+}
+
+section {
+    margin-top: 20px;
+}
+
+canvas {
+    max-width: 100%;
+    height: 400px;
+}
+
+@media (max-width: 600px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        min-width: 100%;
+    }
+}
+    </style>
+</body>
+</html>

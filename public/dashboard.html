@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administration</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <h2>NATMO</h2>
+            <ul>
+                <li><a href="dashboard.html">Tableau de bord</a></li>
+                <li><a href="user.html">Utilisateurs</a></li>
+                <li><a href="cours.html">Cours</a></li>
+                <li><a href="stat.html">Statistiques</a></li>
+                <li><a href="logout.html">Déconnexion</a></li>
+            </ul>
+        </nav>
+        <main>
+            <header>
+                <h1>Tableau de bord d'administration</h1>
+                <button id="addUserBtn">Ajouter un utilisateur</button>
+            </header>
+            <section>
+                <h2>Liste des utilisateurs</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nom</th>
+                            <th>Email</th>
+                            <th>Rôle</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="userTableBody">
+                        <!-- Les utilisateurs seront ajoutés ici par JavaScript -->
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .container {
+            display: flex;
+            width: 100%;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+        }
+        .sidebar h2 {
+            text-align: center;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 15px 0;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        main {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+    <script>
+   const users = [
+    { id: 1, name: 'Alice Dupont', email: 'alice@example.com', role: 'Administrateur' },
+    { id: 2, name: 'Bob Martin', email: 'bob@example.com', role: 'Élève' },
+    { id: 3, name: 'Claire Durand', email: 'claire@example.com', role: 'Professeur' }
+];
+
+function renderUserTable() {
+    const userTableBody = document.getElementById('userTableBody');
+    userTableBody.innerHTML = '';
+
+    users.forEach(user => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${user.id}</td>
+            <td>${user.name}</td>
+            <td>${user.email}</td>
+            <td>${user.role}</td>
+            <td>
+                <button onclick="editUser(${user.id})">Modifier</button>
+                <button onclick="deleteUser(${user.id})">Supprimer</button>
+            </td>
+        `;
+        userTableBody.appendChild(row);
+    });
+}
+
+function editUser(id) {
+    alert(`Modifier l'utilisateur avec ID: ${id}`);
+}
+
+function deleteUser(id) {
+    const index = users.findIndex(user => user.id === id);
+    if (index > -1) {
+        users.splice(index, 1);
+        renderUserTable();
+    }
+}
+
+document.getElementById('addUserBtn').addEventListener('click', () => {
+    alert('Ajouter un nouvel utilisateur');
+});
+
+// Initial render
+renderUserTable();
+</script>
+
+</body>
+</html>
